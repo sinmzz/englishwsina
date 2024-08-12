@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container-fluid" align="center" style="width: 24rem">
+    <form action="{% url 'newcard' %}" method="post">
+        {% csrf_token %}
+        <label for="word" class="col-form-label">New word:</label>
+        <input class="form-control" type="text" id="word" name="word">
+        <label for="part" class="col-form-label">Part of speech:</label>
+        <select class="form-select" aria-label="Default select example" name="part" id="part">
+            <option selected>...</option>
+            <option value="n.">noun</option>
+            <option value="v.">verb</option>
+            <option value="adj.">adjective</option>
+        </select>
+        <label for="definition" class="col-form-label">Definition:</label>
+        <input class="form-control" type="text" id="definition" name="definition">
+        <label for="example" class="col-form-label">Example:</label>
+        <input class="form-control" type="text" id="example" name="example">
+        <label for="collocation" class="col-form-label">Collocation:</label>
+        <input class="form-control" type="text" id="collocation" name="collocation"><br>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+{% endblock %}

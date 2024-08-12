@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block body %}
+    <div class="container-fluid" align="center" style="width: 18rem">
+        <form action="{% url 'flashcard' %}" method="get">
+            {% csrf_token %}
+            <label for="userInput" class="col-form-label">Look up a word:</label>
+            <input class="form-control" type="text" id="userInput" name="userInput"><br>
+            <button type="submit" class="btn btn-primary">Go</button>
+        </form>
+    </div>
+{% endblock %}
